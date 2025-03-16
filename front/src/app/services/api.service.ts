@@ -1,0 +1,30 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  private baseUrl = 'http://localhost:5050/api/v1';
+
+  constructor(private http: HttpClient) {}
+
+  signup(userData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/signup`, userData);
+  }
+
+  login(credentials: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/login`, credentials);
+  }
+
+  uploadFile(fileData: FormData, token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post(`${this.baseUrl}/upload`, fileData, { headers });
+  }
+
+  fetchDocuments(token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.baseUrl}/documents`, { headers });
+  }
+}
