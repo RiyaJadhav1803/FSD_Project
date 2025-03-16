@@ -1,5 +1,9 @@
-<h1>Signup</h1>
-<input type="text" [(ngModel)]="name" placeholder="Name" class="form-control">
-<input type="email" [(ngModel)]="email" placeholder="Email" class="form-control">
-<input type="password" [(ngModel)]="password" placeholder="Password" class="form-control">
-<button (click)="signup()" class="btn btn-success">Signup</button>
+<div class="signup-container">
+    <h1>Signup</h1>
+    <form (submit)="signup()">
+        <input type="text" [(ngModel)]="name" placeholder="Name" class="input-field" required>
+        <input type="email" [(ngModel)]="email" placeholder="Email" class="input-field" required>
+        <input type="password" [(ngModel)]="password" placeholder="Password" class="input-field" required>
+        <button type="submit" class="signup-btn">Signup</button>
+    </form>
+</div>

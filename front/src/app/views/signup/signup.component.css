@@ -1,0 +1,85 @@
+/* Signup Page CSS */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .signup-container {
+    width: 350px;
+    padding: 25px;
+    background: white;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.3);
+    text-align: center;
+  }
+  
+  .signup-container h1 {
+    font-size: 28px;
+    color: #6a11cb;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+  
+  .signup-container .input-field {
+    width: 90%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.3s ease;
+  }
+  
+  .signup-container .input-field:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.25);
+  }
+  
+  .signup-container .signup-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #6a11cb;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 15px;
+  }
+  
+  .signup-container .signup-btn:hover {
+    background: #5a0fad;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+  }
+  
+  .form-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .form-link a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .form-link a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 400px) {
+    .signup-container {
+      width: 90%;
+    }
+  }

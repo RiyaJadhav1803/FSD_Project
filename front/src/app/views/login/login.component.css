@@ -1,0 +1,100 @@
+/* Login Page CSS */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #005bea);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .login-container {
+    width: 350px;
+    padding: 30px;
+    background: white;
+    margin: 50px auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .login-container h1 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  .login-container h1:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #6a11cb;
+  }
+  
+  .login-container .form-control {
+    width: 90%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: 0.3s ease;
+    background-color: #f9f9f9;
+  }
+  
+  .login-container .form-control:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
+    background-color: #fff;
+  }
+  
+  .login-container .btn-primary {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    background: #6a11cb;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .login-container .btn-primary:hover {
+    background: #5809ae;
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+  }
+  
+  .form-link {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .form-link a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .form-link a:hover {
+    text-decoration: underline;
+    color: #5809ae;
+  }
+  
+  @media (max-width: 400px) {
+    .login-container {
+      width: 90%;
+      padding: 20px;
+    }
+  }

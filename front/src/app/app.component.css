@@ -1,0 +1,349 @@
+/* Enhanced Navbar and Layout CSS */
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  }
+  
+  /* Full-height Layout Structure */
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Enhanced Navbar Styling */
+  .navbar {
+    background: linear-gradient(to right, #4a0ea1, #6a11cb) !important;
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(106, 17, 203, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 24px;
+    color: white !important;
+    position: relative;
+    padding-left: 15px;
+  }
+  
+  .navbar-brand:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: #fff;
+    border-radius: 2px;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 0 3px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .navbar-nav .nav-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .btn {
+    padding: 14px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: white;
+    color: #6a11cb;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #4a0ea1;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-outline-light {
+    background-color: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+  }
+  
+  .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Main Content Area */
+  main {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+  }
+  
+  /* Component Container Styles */
+  .auth-container,
+  .signup-container,
+  .login-container,
+  .upload-container {
+    margin: 0 auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  /* Hide Hero when displaying components */
+  .component-active .hero {
+    display: none;
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 80px 0;
+    }
+    
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+    }
+    
+    .btn-group {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    
+    .navbar-brand {
+      font-size: 20px;
+    }
+    
+    .navbar-collapse {
+      background: rgba(74, 14, 161, 0.98);
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+  }
+
+/* Updated Pretty Navbar CSS */
+
+/* Navbar Base Styling */
+.navbar {
+    background: linear-gradient(to right, #4a0ea1, #6a11cb) !important;
+    padding: 16px 0;
+    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+  }
+  
+  .navbar-brand {
+    color: white !important;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-left: 15px;
+  }
+  
+  .navbar-brand:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 26px;
+    background: #fff;
+    border-radius: 2px;
+  }
+  
+  /* Navbar Toggler for Mobile */
+  .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 0.3rem 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-toggler:hover {
+    border-color: white;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+    outline: none;
+  }
+  
+  /* Navigation Links */
+  .navbar-nav {
+    margin-left: auto; /* This ensures items are on the right */
+  }
+  
+  /* Remove list styling */
+  .navbar-nav {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 0 8px; /* Increased spacing between nav items */
+    list-style: none; /* Ensure no bullets/dots */
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600;
+    font-size: 17px; /* Increased font size */
+    padding: 12px 24px; /* Larger padding for bigger click area */
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: block; /* Ensure proper display */
+    text-decoration: none; /* Remove underlines */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Make sure nav is properly spaced on all screen sizes */
+  @media (max-width: 992px) {
+    .navbar-collapse {
+      background: rgba(74, 14, 161, 0.98);
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-nav .nav-item {
+      margin: 8px 0;
+    }
+    
+    .navbar-nav .nav-link {
+      text-align: center;
+    }
+  }
+  
+  /* Make sure the ms-auto class works correctly */
+  .ms-auto {
+    margin-left: auto !important;
+  }
+  
+  /* Additional styling for responsive behavior */
+  @media (min-width: 992px) {
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
