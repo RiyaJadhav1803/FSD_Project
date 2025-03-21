@@ -1,7 +1,8 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
+const {mongostring} = require('../config/serverconfig.js');
 
-const uri = process.env.mongostring;
+const uri = mongostring;
 
 const connect = async () => {
   if (!uri) {
