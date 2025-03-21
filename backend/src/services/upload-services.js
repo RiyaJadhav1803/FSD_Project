@@ -2,6 +2,7 @@ const Tesseract = require("tesseract.js");
 const path = require("path");
 const fs = require("fs-extra");
 const { exec } = require("child_process");
+const pdfParse = require("pdf-parse");
 
 require('dotenv').config();
 
@@ -26,9 +27,9 @@ const data_summarizer = async (file_data)=>{
     }
 }
 
-//function to extract text from image and pdf
+//function to extract text
 const extractText = async (file_url,  file_type)=>{
-    if(file_type === 'image/jpeg' ||file_type === 'image/png' ){
+    if(file_type === 'image/jpeg' ||file_type === 'image/png' ){//from image
         try {
             const { data: { text } } = await Tesseract.recognize(file_url, "eng");
             console.log("Text extracted from image", text);
@@ -37,8 +38,42 @@ const extractText = async (file_url,  file_type)=>{
             console.log("Error extracting text from image", error);
             return error;
         }
-    }else if(file_type === 'application/pdf'){
-        //need to complete this part
+    }else if(file_type === 'application/pdf'){//from pdf
+        try{
+            // text extraction Scanned PDF
+            // return new Promise((resolve, reject) => {
+            //     const outputDir = path.dirname(file_url);
+            //     const outputFile = path.join(outputDir, "output");
+        
+            //     // Convert PDF to PNG images
+            //     exec(`pdftoppm -png "${file_url}" "${outputFile}"`, async (error) => {
+            //         if (error) {
+            //             console.error("Error converting PDF to images:", error);
+            //             return reject(error);
+            //         }
+        
+            //         const images = fs.readdirSync(outputDir).filter(file => file.startsWith("output") && file.endsWith(".png"));
+        
+            //         let extractedText = "";
+            //         for (const image of images) {
+            //             const imagePath = path.join(outputDir, image);
+            //             const { data: { text } } = await Tesseract.recognize(imagePath, "eng");
+            //             extractedText += text + "\n";
+            //         }
+        
+            //         resolve(extractedText);
+            //     });
+            // });
+
+            //text extraction from normal pdf
+            const dataBuffer = fs.readFileSync(file_url);
+            const data = await pdfParse(dataBuffer);
+            return data.text;
+        }catch(error){
+            console.log("Error extracting text from pdf", error);
+            return error;
+        }
+        
     }
 
 }
