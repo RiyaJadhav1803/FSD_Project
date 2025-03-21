@@ -7,7 +7,7 @@ const authenticateUser = require('../../middleware/user-middleware.js');
 const router = express.Router();
 const fs = require('fs');
 
-router.post('/upload', authenticateUser, upload.single('file'), uploadFile);
+router.post('/upload', upload.single('file'), uploadFile);
 router.get('/documents', authenticateUser, fetchDocument);
 router.post('/update-summary', authenticateUser, updateDocumentSummary);
 

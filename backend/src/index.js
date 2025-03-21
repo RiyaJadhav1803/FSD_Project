@@ -20,7 +20,7 @@ app.use('/api', apiRoutes);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
-    console.error("❌ Error:", err.message);
+    console.error("Error:", err.message);
     res.status(err.status || 500).json({
         success: false,
         message: err.message || 'Internal Server Error',
@@ -32,10 +32,10 @@ const setupAndStartServer = async () => {
     try {
         await connect();
         app.listen(PORT, () => {
-            console.log(`🚀 Server started at http://localhost:${PORT}`);
+            console.log(`Server started at http://localhost:${PORT}`);
         });
     } catch (error) {
-        console.error("❌ Error starting server:", error);
+        console.error(" Error starting server:", error);
     }
 };
 

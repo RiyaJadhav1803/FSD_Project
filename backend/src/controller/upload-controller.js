@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const uploadFile = async (req, res) => {
     console.log("Received User ID:", req.body.userid); // Debugging
     console.log("Received File:", req.file); // Debugging
+    const file_path = req.file.path;
     if (!req.file) {
         return res.status(400).json({
             error: 'Invalid file type. Upload a valid document or image.'
@@ -32,7 +33,7 @@ const uploadFile = async (req, res) => {
             risk_score: req.body.risk_score || 0,
             summary: req.body.summary || ""
         };
-        const result = await uploadServices.saveFile(fileData);
+        const result = await uploadServices.saveFile(fileData,file_path);
         console.log("data got");
         
         res.status(201).json({

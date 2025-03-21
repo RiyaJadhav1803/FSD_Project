@@ -42,4 +42,4 @@ userSchema.methods.genJWT = function () {
     });
 };
 
-module.exports = mongoose.model('FSD', userSchema);
+module.exports = mongoose.model('User', userSchema);
