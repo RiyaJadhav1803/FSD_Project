@@ -10,12 +10,12 @@ const uploadFile = async (req, res) => {
         return res.status(400).json({
             error: 'Invalid file type. Upload a valid document or image.'
         });
-    }
+    } 
 
-    const isValidObjectId = mongoose.Types.ObjectId.isValid(req.body.userid);
-    if (!isValidObjectId) {
-        return res.status(400).json({ error: "Invalid user ID format." });
-    }
+    // const isValidObjectId = mongoose.Types.ObjectId.isValid(req.body.userid);
+    // if (!isValidObjectId) {
+    //     return res.status(400).json({ error: "Invalid user ID format." });
+    // }
 
     try {
         const fileMimeType = req.file.mimetype;
@@ -34,7 +34,7 @@ const uploadFile = async (req, res) => {
             summary: req.body.summary || ""
         };
         const result = await uploadServices.saveFile(fileData,file_path);
-        console.log("data got");
+        console.log("data got",result);
         
         res.status(201).json({
             data: result,
