@@ -118,3 +118,13 @@ body {
     width: 90%;
   }
 }
+
+.summarized_data{
+  width: 28rem;
+  padding: 25px;
+  background: white;
+  margin: 50px auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(106, 17, 203, 0.25);
+  text-align: center;
+}
