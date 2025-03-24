@@ -14,10 +14,19 @@ const {GEMINI_API_KEY} = require('../config/serverconfig.js');
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+const convertToPdf = async (text)=>{
+    try {
+        
+    } catch (error) {
+        console.log("Error converting to pdf", error);
+        throw error;
+    }
+}
+
 //function to summarize data
 const data_summarizer = async (file_data)=>{
     try{  
-        const prompt = "Summarize the following text in 500 words, the input text is:"+file_data;;
+        const prompt = "Summarize the following text in 500 words, the input text is:"+file_data;
         const result = await model.generateContent(prompt);
         console.log("Gemini o/p 1",result.response.text());
         return result.response.text();
@@ -84,15 +93,17 @@ const saveFile = async (fileData, file_path ) => {
         const response = await uploadRepo.storeFile(fileData);
         console.log("From upload service88",response);
         //call to extract text
-        const file_data = await extractText(file_path , response. file_type);
+        const file_data = await extractText(file_path , response.file_type);
         //call to summarize data
         const summarized_data = await data_summarizer(file_data);
+        const data = await uploadRepo.saveSummary(response._id, summarized_data);
+        //convertToPdf(summarized_data);
         //original file data
         console.log("file data", file_data);
         console.log("=====================================");
         //summarized data
         console.log("summarized data", summarized_data);
-        return summarized_data;
+        return data;
         //return file_data;
         //return response;
     } catch (error) {

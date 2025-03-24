@@ -23,6 +23,18 @@ class UploadRepository {
             throw error;
         }
     }
+
+    async saveSummary(documentId, docSummary){
+        try {
+            const response = await Document.findById(documentId);
+            response.summary = docSummary;
+            await response.save();
+            return response;
+        } catch (error) {
+            console.error("Repository Layer Error: Failed to fetch documents", error);
+            throw error;
+        }
+    }
 }
 
 module.exports = UploadRepository;
