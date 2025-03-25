@@ -5,20 +5,21 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    /* background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); */
+    /* background-color: #6b5b95; */
+    /* min-height: 100%; */
+    background: linear-gradient(135deg, #6b5b95 0%, #e4e8f0 100%);
   }
   
   /* Full-height Layout Structure */
   .app-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    /* min-height: 100vh; */
   }
   
   /* Enhanced Navbar Styling */
   .navbar {
-    background: linear-gradient(to right, #000000, #020202) !important;
+    background: linear-gradient(to right, #0A1828, #0A1828) !important;
     padding: 15px 0;
     /* border-radius: 1rem; */
     box-shadow: 0 4px 20px rgba(106, 17, 203, 0.25);
@@ -171,7 +172,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px 0;
-    background: linear-gradient(to right, #000000, #10155f, #000000);
+    /* background: linear-gradient(to right, #000000, #10155f, #000000); */
     /* background: linear-gradient(to right, #000000, #0a114e); */
     /* background: linear-gradient(to right, #b5a3c7, #2575fc); */
   }

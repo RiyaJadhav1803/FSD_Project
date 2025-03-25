@@ -1,24 +1,27 @@
 /* Upload Page CSS */
-body {
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right, #5d12c6, #4361ee);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
+/* Upload container */
 .upload-container {
   width: 350px;
   padding: 25px;
   background: white;
-  margin: 50px auto;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(106, 17, 203, 0.25);
   text-align: center;
+  margin-top: 180px;
 }
 
+/* Upload heading */
 .upload-container h1 {
   font-size: 26px;
   color: #5d12c6;
@@ -26,20 +29,22 @@ body {
   font-weight: 600;
 }
 
+/* File input wrapper */
 .file-input-wrapper {
   position: relative;
-  margin: 20px 0;
   background-color: #f7f5ff;
   border: 2px dashed #6a11cb;
   border-radius: 8px;
   padding: 20px 10px;
   transition: all 0.3s ease;
+  margin: 20px 0;
 }
 
 .file-input-wrapper:hover {
   background-color: #f0ebff;
 }
 
+/* Input fields */
 .upload-container input[type="file"] {
   width: 100%;
   cursor: pointer;
@@ -61,6 +66,7 @@ body {
   box-shadow: 0 0 8px rgba(106, 17, 203, 0.2);
 }
 
+/* Upload button */
 .upload-container button {
   width: 100%;
   padding: 14px;
@@ -81,6 +87,7 @@ body {
   box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
 }
 
+/* Progress bar */
 .progress-bar {
   width: 100%;
   height: 8px;
@@ -97,6 +104,7 @@ body {
   transition: width 0.3s ease;
 }
 
+/* Link styling */
 .form-link {
   margin-top: 20px;
   font-size: 14px;
@@ -113,18 +121,20 @@ body {
   text-decoration: underline;
 }
 
+/* Summarized Data Box */
+.summarized_data {
+  width: 28rem;
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(106, 17, 203, 0.25);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
 @media (max-width: 400px) {
   .upload-container {
     width: 90%;
   }
-}
-
-.summarized_data{
-  width: 28rem;
-  padding: 25px;
-  background: white;
-  margin: 50px auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(106, 17, 203, 0.25);
-  text-align: center;
 }
