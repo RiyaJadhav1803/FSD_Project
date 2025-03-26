@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs-extra");
 const { exec } = require("child_process");
 const pdfParse = require("pdf-parse");
+const PDFDocument = require("pdfkit");
 
 require('dotenv').config();
 
@@ -11,12 +12,18 @@ const uploadRepo = new uploadRepository();
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const {GEMINI_API_KEY} = require('../config/serverconfig.js');
+const { title } = require("process");
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-const convertToPdf = async (text)=>{
+const convertToPdf = async (data)=>{
     try {
-        
+        const doc = new PDFDocument();
+        res.setHeader("Content-Disposition", "attachment; filename=data.pdf");
+        res.setHeader("Content-Type", "application/pdf");
+        doc.pipe(res);
+        doc.fontSize(16).text(data, 100, 100);
+        doc.end();
     } catch (error) {
         console.log("Error converting to pdf", error);
         throw error;
@@ -132,8 +139,31 @@ const updateSummary = async (documentId, summary) => {
     }
 };
 
+const downloadSummary = async (documentId,res)=>{
+    try {
+        const currentPdfData = await uploadRepo.getSummary(documentId);
+        const data = currentPdfData.summary;
+        const maintitle = currentPdfData.file_name;
+        const title = maintitle.replace('.pdf',"");
+        const doc = new PDFDocument();
+        res.setHeader("Content-Disposition", "attachment; filename=data.pdf");
+        res.setHeader("Content-Type", "application/pdf");
+        doc.pipe(res);
+        doc.fontSize(20).font("Helvetica-Bold").text(title, { align: "center" });
+        doc.moveDown(); 
+        doc.fontSize(16).font("Helvetica").text(data, { align: "left" });
+        doc.end();
+        return data;
+    } catch (error) {
+        console.log("Service layer error", error);
+        throw error;
+    }
+}
+
 module.exports = {
     saveFile,
     getDocument,
-    updateSummary
+    updateSummary,
+    convertToPdf,
+    downloadSummary
 };

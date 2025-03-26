@@ -1,5 +1,5 @@
 const uploadServices = require('../services/upload-services.js');
-const { getDocument, updateSummary } = require('../services/upload-services.js');
+const { getDocument, updateSummary, downloadSummary } = require('../services/upload-services.js');
 const mongoose = require('mongoose');
 
 const uploadFile = async (req, res) => {
@@ -93,8 +93,29 @@ const updateDocumentSummary = async (req, res) => {
     }
 };
 
+const downloadDocumentSummary = async(req,res)=>{
+    try {
+        const documentId  = req.body.document_Id;
+        if (!documentId) {
+            return res.status(400).json({
+                message: "documentId is required"
+            });
+        }
+
+        await downloadSummary(documentId, res);
+    } catch (error) {
+        res.status(500).json({
+            data: {},
+            success: false,
+            err: error,
+            message: 'Unable to download the summary'
+        });
+    }
+}
+
 module.exports = {
     uploadFile,
     fetchDocument,
-    updateDocumentSummary
+    updateDocumentSummary,
+    downloadDocumentSummary
 };

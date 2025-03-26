@@ -35,6 +35,16 @@ class UploadRepository {
             throw error;
         }
     }
+
+    async getSummary(document_id){
+        try {
+            const data = await Document.findById(document_id);
+            return data;
+        } catch (error) {
+            console.error("Repository Layer Error: Failed to fetch documents", error);
+            throw error;
+        }
+    }
 }
 
 module.exports = UploadRepository;
