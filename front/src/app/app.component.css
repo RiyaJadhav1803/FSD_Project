@@ -350,3 +350,17 @@ body {
       justify-content: space-between;
     }
   }
+  .navbar-logo {
+    width: 160px;
+    height: auto;
+    max-height: 90px;
+    border-radius: 50%;
+}
+.navbar-text {
+  font-size: 1.5rem; /* Adjust size */
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
