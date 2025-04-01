@@ -8,6 +8,7 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { UploadComponent } from './views/upload/upload.component';
+import { SummaryBoxComponent } from './views/summary-box/summary-box.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { UploadComponent } from './views/upload/upload.component';
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    UploadComponent
+    UploadComponent,
+    SummaryBoxComponent
+    
   ],
   imports: [
     HttpClientModule,
