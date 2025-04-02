@@ -3,7 +3,7 @@ const { getDocument, updateSummary, downloadSummary } = require('../services/upl
 const mongoose = require('mongoose');
 
 const uploadFile = async (req, res) => {
-    console.log("Received User ID:", req.body.userid); // Debugging
+    console.log("Received User ID:", req.user.id); // Debugging
     console.log("Received File:", req.file); // Debugging
     const file_path = req.file.path;
     if (!req.file) {
@@ -25,7 +25,7 @@ const uploadFile = async (req, res) => {
             "image/png": "png"
         };
         const fileData = {
-            user_id: new mongoose.Types.ObjectId(req.body.userid),
+            user_id: req.user.id,
             file_name: req.file.originalname,
             file_url: `/uploads/${req.file.filename}`,
             file_type: req.file.mimetype,

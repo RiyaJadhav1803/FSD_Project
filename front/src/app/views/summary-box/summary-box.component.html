@@ -1,30 +1,14 @@
-<div class="summaries-container">
-    <h2>Text Summaries</h2>
-    
-    <div *ngIf="loading" class="loading">
-      <p>Loading summaries...</p>
-    </div>
-    
-    <div *ngIf="error" class="error-message">
-      {{ error }}
-    </div>
-    
-    <div *ngIf="!loading && !error && summaries.length === 0" class="no-data">
-      <p>No summaries available. Please upload files to generate summaries.</p>
-    </div>
-    
-    <div class="summaries-grid">
-      <div *ngFor="let summary of summaries" class="summary-box">
-        <div class="summary-header">
-          <h3>{{ summary.title || 'Untitled Summary' }}</h3>
-          <button class="delete-btn" (click)="deleteSummary(summary.id)">×</button>
-        </div>
-        <div class="summary-content">
-          <p>{{ summary.text }}</p>
-        </div>
-        <div class="summary-footer" *ngIf="summary.timestamp">
-          <small>{{ summary.timestamp | date:'medium' }}</small>
-        </div>
-      </div>
-    </div>
-  </div>
+<div *ngIf="documents.length > 0">
+  <h2>Your Summarized Documents</h2>
+  <ul>
+    <li *ngFor="let doc of documents">
+      <h4>{{ doc.file_name }}</h4>
+      <p>{{ doc.summary }}</p>
+      <small>{{doc.file_type }}</small>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="documents.length === 0">
+  <p>No summarized documents available.</p>
+</div>
