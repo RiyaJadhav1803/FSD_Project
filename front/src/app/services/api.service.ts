@@ -27,4 +27,14 @@ export class ApiService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.baseUrl}/documents`, { headers });
   }
+
+    getSummarizedDocuments(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get<any>(`${this.baseUrl}/summaries`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+  }
+  
 }
