@@ -17,4 +17,6 @@ export class AppComponent {
     // Navigate to login page
     this.router.navigate(['/login']);
   }
+ 
+  
 }

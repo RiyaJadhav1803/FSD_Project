@@ -1,0 +1,14 @@
+<div *ngIf="messages.length > 0; else noMessages">
+    <h2>Received Messages</h2>
+    <ul>
+      <li *ngFor="let message of messages">
+        <strong>Sender : </strong> {{ message.senderEmail }}<br>
+        <strong>Summary:</strong> {{ message.summary }}
+        <button (click)="downloadSummary(message.summary)" class="download-btn">Download Summary</button>
+      </li>
+    </ul>
+</div>
+  <ng-template #noMessages>
+    <p>No received messages found.</p>
+  </ng-template>
+  

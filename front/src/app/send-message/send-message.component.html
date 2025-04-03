@@ -1,0 +1,7 @@
+<div class="send-message-container">
+    <h2>Send Summary</h2>
+    <textarea readonly>{{ summaryText }}</textarea>
+    <input type="email" placeholder="Recipient Email" [(ngModel)]="recipientEmail" />    
+  </div>
+  <button (click)="sendEmail()">Send</button>
+  

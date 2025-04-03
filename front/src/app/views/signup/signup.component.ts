@@ -16,8 +16,10 @@ export class SignupComponent {
   constructor(private apiService: ApiService, private router: Router) {}
 
   signup() {
-    this.apiService.signup({ name: this.name, email: this.email, password: this.password }).subscribe(() => {
+    this.apiService.signup({ name: this.name, email: this.email, password: this.password }).subscribe((response) => {
       alert('Signup successful');
+      localStorage.setItem('email', response.email); 
+      localStorage.setItem('email', this.email);
       this.router.navigate(['/login']);
     }, err => {
       

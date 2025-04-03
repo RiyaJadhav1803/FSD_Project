@@ -34,10 +34,10 @@ const uploadFile = async (req, res) => {
             summary: req.body.summary || ""
         };
         const result = await uploadServices.saveFile(fileData,file_path);
-        console.log("data got",result);
+        console.log("data got",result.summary);
         
         res.status(201).json({
-            data: result,
+            data: result.summary,
             success: true,
             err: {},
             message: 'successfully uploaded file'

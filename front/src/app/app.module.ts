@@ -9,6 +9,9 @@ import { LoginComponent } from './views/login/login.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { UploadComponent } from './views/upload/upload.component';
 import { SummaryBoxComponent } from './views/summary-box/summary-box.component';
+import { SendMessageComponent } from './send-message/send-message.component';
+import { ReceivedMessagesComponent } from './received-messages/received-messages.component';
+// import { ReceivedMessagesComponent } from './received-messages/received-messages.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { SummaryBoxComponent } from './views/summary-box/summary-box.component';
     LoginComponent,
     SignupComponent,
     UploadComponent,
-    SummaryBoxComponent
+    SummaryBoxComponent,
+    SendMessageComponent,
+    ReceivedMessagesComponent,
+    // ReceivedMessagesComponent
     
   ],
   imports: [

@@ -2,7 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../services/api.service';
-
+import { jsPDF } from 'jspdf';
+import { Router } from '@angular/router';
 interface Summary {
   id: string;
   text: string;
@@ -18,8 +19,8 @@ interface Summary {
 })
 export class SummaryBoxComponent implements OnInit {
    documents: any[] = [];
-
-  constructor(private apiService: ApiService) {}
+   summary: string | null = null;
+   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.apiService.getSummarizedDocuments().subscribe(
@@ -30,5 +31,18 @@ export class SummaryBoxComponent implements OnInit {
         console.error('Error fetching summaries:', error);
       }
     );
+  }
+
+  exportToPDF(summary: string) {
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text('Summarized Text', 10, 20);
+    doc.setFontSize(12);
+    const textLines = doc.splitTextToSize(summary, 180);
+    doc.text(textLines, 10, 40);
+    doc.save('summarized_text.pdf');
+  }  
+  sendSummary(summary: string) {
+    this.router.navigate(['/sendmessage'], { state: { summary: summary } });
   }
 }

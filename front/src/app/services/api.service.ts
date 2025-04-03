@@ -10,6 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
+  
   signup(userData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/signup`, userData);
   }
@@ -36,5 +37,13 @@ export class ApiService {
       }
     });
   }
+  sendSummary(data: any) {
+    return this.http.post('http://localhost:5050/api/send-summary', data);
+  }
+  getReceivedMessages(email: string): Observable<any> {
+    return this.http.get(`http://localhost:5050/api/get-messages/${email}`);
+  }
+  
+  
   
 }

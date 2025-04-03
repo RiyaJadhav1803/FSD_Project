@@ -2,10 +2,15 @@
   <h2>Your Summarized Documents</h2>
   <ul>
     <li *ngFor="let doc of documents">
-      <h4>{{ doc.file_name }}</h4>
-      <p>{{ doc.summary }}</p>
-      <small>{{doc.file_type }}</small>
+      <h4> <b>File Name : </b> {{ doc.file_name }}</h4>
+      <p> <b>File Summary : </b> {{ doc.summary }}</p>
+      <p><b>File Type : </b> {{doc.file_type }}</p>
+      <button type="submit" (click)="exportToPDF(doc.summary)">Export as PDF</button>
+      <button class="btn btn-primary" (click)="sendSummary(doc.summary)">Send</button>
+      <button routerLink="/received-messages" class="btn btn-danger">Received Messages</button>
+
     </li>
+    
   </ul>
 </div>
 

@@ -17,6 +17,7 @@ export class LoginComponent {
   login() {
     this.apiService.login({ email: this.email, password: this.password }).subscribe(response => {
       localStorage.setItem('token', response.data);
+      localStorage.setItem('email', this.email);
       this.router.navigate(['/upload']);
     }, err => {
       alert('Login failed');
